@@ -3,4 +3,3 @@
     ```shell```
     Host *
         StrictHostKeyChecking no
-
