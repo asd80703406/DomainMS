@@ -1,0 +1,30 @@
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+baseurl=http://172.28.49.16/epel/$releasever/$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+priority=15
+gpgkey=http://172.28.49.16/epel/RPM-GPG-KEY-EPEL-6
+
+[base]
+name=CentOS-$releasever - Base
+baseurl=http://172.28.49.16/centos/$releasever/base/Packages
+gpgcheck=1
+priority=5
+gpgkey=http://172.28.49.16/$releasever/RPM-GPG-KEY-EPEL-$releasever
+
+[itiger]
+name=CentOS-$releasever - itiger
+baseurl=http://172.28.49.16/centos-itiger/$releasever/base/Packages
+gpgcheck=0
+enabled=1
+priority=1
+
+[ali]
+name=CentOS-ali
+baseurl=http://172.28.49.16/centos-ali/$releasever/base/Packages
+gpgcheck=1
+enabled=1
+priority=10
+gpgkey=http://172.28.49.16/$releasever/RPM-GPG-KEY-EPEL-$releasever

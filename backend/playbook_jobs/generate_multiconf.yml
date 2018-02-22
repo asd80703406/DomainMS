@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/23 12:25
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: generate_multiconf.yml
+---
+- hosts: "{{ host_list }}"
+  become: yes
+  gather_facts: False
+  become_user: root
+  become_method: sudo
+  roles:
+    - multinginx

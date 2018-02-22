@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2017/12/28 11:43
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: execute_nginx_cmd.yml
+
+- hosts: "{{ host_list }}"
+  gather_facts: False
+  become_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: execute nginx cmd
+      shell: /usr/local/nginx/sbin/nginx {{ cmd }}
+#      register: nginxcmd
+#    - debug: var=nginxcmd.stderr

@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/25 21:41
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: check_cfg_then_restart_nginx.yml
+
+
+- hosts: "{{ host_list }}"
+  gather_facts: False
+  become_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: nginx configtest
+      shell: /usr/local/nginx/sbin/nginx -t
+      register: check_result
+
+    - name: restart nginx
+    shell: echo "nginx configtest success"
+    when: check_result|success

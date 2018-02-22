@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/19 16:57
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: t2.yml
+
+- hosts: "{{ host_list }}"
+  gather_facts: False
+  become_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: execute cmd1
+      shell: ls /tmp
+
+    - name: execute cmd2
+      shell: ls ~
+
+    - name: execute cmd3
+      shell: pwd

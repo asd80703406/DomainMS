@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2017/12/21 19:01
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: get_remote_tcpconnection.yml
+
+- hosts: '{{ host_list }}'
+  gather_facts: False
+  tasks:
+    - name: get tcp connection status
+      shell: /usr/sbin/ss  -tan|awk 'NR>1{++S[$1]}END{for (a in S) print a,S[a]}'
+#      register: tcpconnection
+#    - debug: var=tcpconnection.stdout_lines

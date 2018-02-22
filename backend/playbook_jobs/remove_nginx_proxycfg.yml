@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/11 17:22
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: remove_nginx_proxycfg.yml
+
+- hosts: "{{ host_list }}"
+  gather_facts: False
+  become_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: delete cfg file
+      file:
+        path: "{{ cfgfile }}"
+        state: absent
+
+#    - name: config test nginx
+#      shell:  /usr/local/nginx/sbin/nginx -t
+#      register: configtest
+#
+#    - name: reload nginx
+#      shell: /usr/local/nginx/sbin/nginx -s reload
+#      when: configtest|success

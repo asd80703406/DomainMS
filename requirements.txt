@@ -1,0 +1,17 @@
+tornado
+celery
+redis
+torndb
+# router
+passlib
+pycurl
+mysqlclient
+itsdangerous
+ldap3
+ansible
+pyOpenSSL
+requests
+# import urllib.parse as urlparse
+# The urlparse module is renamed to urllib.parse in Python 3.
+# pip3 install --trusted-host http://pypi.douban.com/simple/  torndb
+# 需要修改torndb.py源码中138 return [Row(itertools.zip_longest(column_names, row)) for row in cursor]

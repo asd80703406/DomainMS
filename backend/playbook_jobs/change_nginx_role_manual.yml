@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2017/12/28 17:41
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: change_nginx_role_manual.yml
+
+- hosts: "{{ host_list }}"
+  gather_facts: False
+  become_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: change nginx role
+      shell: /etc/init.d/keepalived {{ cmd }}
+#      register: nginxcmd
+#    - debug: var=nginxcmd.stdout

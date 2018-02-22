@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/5 11:43
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: add_domain.yml
+---
+#- name: Ensure nginx_vhost_path exists.
+#  file:
+#    path: "{{ nginx_vhost_path }}"
+#    state: directory
+
+# Nginx setup.
+- name: copy nginx configuration in place.
+  template:
+    src: "{{ nginx_proxy_template }}"
+    dest: "{{ nginx_vhost_path }}/{{ item.nginx_vhosts.filename }}"
+    owner: root
+    group: "{{ root_group }}"
+    backup: yes
+    mode: 0644
+  with_items: "{{ my_list }}"
+#  notify:
+#    - nginx configtest
+
+#- name: nginx configtest
+#  shell: "{{ nginx_sbin_path }} -t -c {{ nginx_conf_file_path }}"
+#  register: conftest

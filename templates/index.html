@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<input type="text" id="" />-->
+    <!--<input type="text" id="" />-->
+    <!--<input type="text" id="" />-->
+
+    <input type="file" id="img" />
+    <input type="button" value="上传" onclick="UploadFile();" />
+    <script src="{{ static_url("jquery-2.1.1.js")}}"></script>
+    <script>
+        function UploadFile(){
+            var fileObj = $("#img")[0].files[0];        //获取上传文件名称
+            var form = new FormData();                  //创建表单对象
+            form.append("k1", "v1");                    //向表单对象添加name和value
+            form.append("file", fileObj);                //向表单对象添加name和value,将上传文件名称添加到value
+
+            $.ajax({                                    //jquery的ajax提交
+                type: 'POST',
+                url: '/ssl/up',
+                data: form,                             //提交数据为表单对象
+                processData: false,                     //默认为 true，数据被处理为 URL 编码格式。如果为 false，则阻止将传入的数据处理为 URL 编码的格式。
+                contentType: false,                     //指 定 请 求 内 容 的 类 型
+                success: function (response, status, xhr) {      //提交成功
+                    $('.shchlj').val(response)                   //将返回文件的服务器上传路径，添加到输入框值
+                },
+                error: function (xhr, errorText, errorStatus) {  //如果发生错误，返回错误信息
+
+                }
+
+            })
+        }
+    </script>
+</body>
+</html>

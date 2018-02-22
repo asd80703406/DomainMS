@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/8 15:54
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: generate_nginx_vhost.yml
+---
+- hosts: "{{ host_list }}"
+  become: yes
+  gather_facts: False
+  become_user: root
+  become_method: sudo
+  roles:
+    - nginx

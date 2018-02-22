@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2017/12/27 12:08
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: get_nginx_request_status.yml
+
+
+- hosts: "{{ host_list }}"
+  gather_facts: False
+  tasks:
+    - name: get tcp connection status
+      shell: cat /tmp/nginx80.txt
+#      register: nginxrequest
+#    - debug: var=nginxrequest.stdout_lines

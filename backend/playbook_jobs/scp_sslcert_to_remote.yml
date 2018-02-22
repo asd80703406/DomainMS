@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/2 17:41
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: scp_sslcert_to_remote.yml
+
+- hosts: "{{ host_list }}"
+  gather_facts: False
+  become_user: root
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: scp pemfile to nginx server
+      copy: src={{ src }} dest={{ dest }} backup=yes

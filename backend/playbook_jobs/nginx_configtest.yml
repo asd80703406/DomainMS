@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/8 18:53
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: nginx_configtest.yml
+
+- hosts: "{{ host_list }}"
+  become: yes
+  gather_facts: False
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: nginx config test
+      shell: /usr/local/nginx/sbin/nginx -t
+#      register: nginxcmd
+#    - debug: var=nginxcmd.stderr

@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/4 16:59
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: Redhat.yml
+
+---
+root_group: root
+nginx_conf_path: /usr/local/nginx/conf/
+nginx_sbin_path: /opt/nginx/sbin/nginx
+#nginx_conf_file_path: /usr/local/nginx/conf/nginx.conf
+nginx_conf_file_path: /opt/nginx/conf/nginx.conf
+#nginx_mime_file_path: /usr/local/nginx/conf/mime.types
+nginx_pidfile: /usr/local/nginx/logs/nginx.pid
+nginx_vhost_path: /usr/local/nginx/conf/proxy.d/
+#nginx_vhost_path: /opt/nginx/conf/proxy.d/
+nginx_local_path: /usr/local/nginx/conf/conf.d/
+nginx_third_path: /usr/local/nginx/conf/third_proxy.d/
+nginx_ssl_path: /usr/local/nginx/conf/ssl/
+nginx_default_vhost_path: /etc/nginx/conf.d/default.conf
+__nginx_user: "nobody"
+nginx_upstream_strategy: rr

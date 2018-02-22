@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/1/4 16:46
+# @Author  : wangzhigang@tigerbrokers.com
+# @FileName: main.yml
+---
+- name: restart nginx
+  shell: "{{ nginx_sbin_path }} -s reload"
+
+- name: nginx configtest
+  shell: "{{ nginx_sbin_path }} -t -c {{ nginx_conf_file_path }}"
+  register: conftest
+#  changed_when: False
+
+- name: reload nginx
+  shell: "{{ nginx_sbin_path }} -s reload"
